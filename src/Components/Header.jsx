@@ -2,7 +2,7 @@ const Header = () => {
   return (
     <header className="main-header">
       <div className="main-header__logo">
-        <h1>Memorebank</h1>
+        <h1>Memor eBank</h1>
       </div>
       <div>
         <button className="add-fact-button">Create New Fact</button>
