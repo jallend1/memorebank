@@ -1,3 +1,4 @@
+import Header from './Components/Header';
 import FactCard from './Components/FactCard';
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
   ];
   return (
     <div className="App">
+      <Header />
       <div className="fact-card-container">
         {facts.map((fact) => (
           <FactCard key={fact.id} {...fact} />
