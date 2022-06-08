@@ -1,5 +1,11 @@
+import FactCard from './Components/FactCard';
+
 function App() {
-  return <div className="App">Hello there</div>;
+  return (
+    <div className="App">
+      <FactCard />
+    </div>
+  );
 }
 
 export default App;
