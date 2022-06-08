@@ -21,9 +21,11 @@ function App() {
   ];
   return (
     <div className="App">
-      {facts.map((fact) => (
-        <FactCard key={fact.id} {...fact} />
-      ))}
+      <div className="fact-card-container">
+        {facts.map((fact) => (
+          <FactCard key={fact.id} {...fact} />
+        ))}
+      </div>
     </div>
   );
 }
