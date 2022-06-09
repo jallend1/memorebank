@@ -23,13 +23,17 @@ const AddFactModal = (props) => {
   const handleSubmit = (e) => {
     if (newFact.title.trim().length < 1) {
       setError('Title is required');
+    } else if (newFact.tags.length < 1) {
+      setError('Tags are required');
+    } else if (newFact.source.trim().length < 1) {
+      setError('Source is required');
     } else {
       onAddFact(newFact);
     }
   };
 
   return (
-    <div>
+    <div className="add-fact-modal-container">
       <div className="add-fact-modal">
         <div className="add-fact-modal__header">
           <h1>Add Fact</h1>
