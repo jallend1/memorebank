@@ -1,19 +1,20 @@
-import { useState } from "react";
+import { useState } from 'react';
+import { format } from 'date-fns';
 
 const AddFactModal = (props) => {
   const { toggleModalOpen, onAddFact, onChange } = props;
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
   const [newFact, setNewFact] = useState({
-    title: "",
+    title: '',
     tags: [],
-    source: "",
-    icon: "",
+    source: '',
+    icon: ''
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    if (name === "tags") {
-      setNewFact({ ...newFact, tags: value.split(",") });
+    if (name === 'tags') {
+      setNewFact({ ...newFact, tags: value.split(',') });
     } else {
       setNewFact({ ...newFact, [name]: value });
     }
@@ -22,7 +23,7 @@ const AddFactModal = (props) => {
   const handleSubmit = (e) => {
     // Assigns current date and ID to new fact
     // TODO: Implement better ID generation
-    const currentDate = Date.now();
+    const currentDate = format(Date.now(), 'MMM do, yyyy');
     const randomID = Math.floor(Math.random() * 1000000);
     const factWithDate = { ...newFact, date: currentDate, id: randomID };
     if (isValidFact(factWithDate)) {
@@ -32,13 +33,13 @@ const AddFactModal = (props) => {
 
   const isValidFact = (fact) => {
     if (fact.title.trim().length < 1) {
-      setError("Title is required");
+      setError('Title is required');
       return false;
     } else if (fact.tags.length < 1) {
-      setError("Tags are required");
+      setError('Tags are required');
       return false;
     } else if (fact.source.trim().length < 1) {
-      setError("Source is required");
+      setError('Source is required');
       return false;
     } else {
       return true;
