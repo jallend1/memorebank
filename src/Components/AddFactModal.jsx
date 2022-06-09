@@ -1,34 +1,36 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 const AddFactModal = (props) => {
   const { toggleModalOpen, onAddFact, onChange } = props;
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
   const [newFact, setNewFact] = useState({
-    title: '',
+    title: "",
     tags: [],
-    date: Date.now(),
-    source: '',
-    icon: ''
+    source: "",
+    icon: "",
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    if (name === 'tags') {
-      setNewFact({ ...newFact, tags: value.split(',') });
+    if (name === "tags") {
+      setNewFact({ ...newFact, tags: value.split(",") });
     } else {
       setNewFact({ ...newFact, [name]: value });
     }
   };
 
   const handleSubmit = (e) => {
+    const currentDate = Date.now();
+    const factWithDate = { ...newFact, date: currentDate };
+    setNewFact(factWithDate);
     if (newFact.title.trim().length < 1) {
-      setError('Title is required');
+      setError("Title is required");
     } else if (newFact.tags.length < 1) {
-      setError('Tags are required');
+      setError("Tags are required");
     } else if (newFact.source.trim().length < 1) {
-      setError('Source is required');
+      setError("Source is required");
     } else {
-      onAddFact(newFact);
+      onAddFact(factWithDate);
     }
   };
 
@@ -57,16 +59,6 @@ const AddFactModal = (props) => {
                 id="tags"
                 name="tags"
                 value={newFact.tags}
-                onChange={handleChange}
-              />
-            </div>
-            <div className="add-fact-modal__body__inputs__date">
-              <label htmlFor="date">Date</label>
-              <input
-                type="text"
-                id="date"
-                name="date"
-                value={newFact.date}
                 onChange={handleChange}
               />
             </div>
