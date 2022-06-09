@@ -20,17 +20,28 @@ const AddFactModal = (props) => {
   };
 
   const handleSubmit = (e) => {
+    // Assigns current date and ID to new fact
+    // TODO: Implement better ID generation
     const currentDate = Date.now();
-    const factWithDate = { ...newFact, date: currentDate };
-    setNewFact(factWithDate);
-    if (newFact.title.trim().length < 1) {
-      setError("Title is required");
-    } else if (newFact.tags.length < 1) {
-      setError("Tags are required");
-    } else if (newFact.source.trim().length < 1) {
-      setError("Source is required");
-    } else {
+    const randomID = Math.floor(Math.random() * 1000000);
+    const factWithDate = { ...newFact, date: currentDate, id: randomID };
+    if (isValidFact(factWithDate)) {
       onAddFact(factWithDate);
+    }
+  };
+
+  const isValidFact = (fact) => {
+    if (fact.title.trim().length < 1) {
+      setError("Title is required");
+      return false;
+    } else if (fact.tags.length < 1) {
+      setError("Tags are required");
+      return false;
+    } else if (fact.source.trim().length < 1) {
+      setError("Source is required");
+      return false;
+    } else {
+      return true;
     }
   };
 
