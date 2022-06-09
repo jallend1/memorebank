@@ -1,27 +1,27 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-import Header from "./Components/Header";
-import FactCard from "./Components/FactCard";
-import AddFactModal from "./Components/AddFactModal";
+import Header from './Components/Header';
+import FactCard from './Components/FactCard';
+import AddFactModal from './Components/AddFactModal';
 
 function App() {
   const [facts, setFacts] = useState([
     {
-      title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      tags: ["Lorem", "Ipsum", "Dolor"],
-      date: Date.now(),
-      source: "FACT SOURCE",
-      icon: "icon",
-      id: 1,
+      title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+      tags: ['Lorem', 'Ipsum', 'Dolor'],
+      date: new Date(),
+      source: 'FACT SOURCE',
+      icon: 'icon',
+      id: 1
     },
     {
-      title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      tags: ["Lorem", "Ipsum", "Dolor"],
-      date: Date.now(),
-      source: "FACT SOURCE",
-      icon: "icon",
-      id: 2,
-    },
+      title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+      tags: ['Lorem', 'Ipsum', 'Dolor'],
+      date: new Date(),
+      source: 'FACT SOURCE',
+      icon: 'icon',
+      id: 2
+    }
   ]);
 
   const [isOpen, setIsOpen] = useState(false);

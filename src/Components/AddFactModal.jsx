@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { format } from 'date-fns';
 
 const AddFactModal = (props) => {
   const { toggleModalOpen, onAddFact, onChange } = props;
@@ -23,7 +22,7 @@ const AddFactModal = (props) => {
   const handleSubmit = (e) => {
     // Assigns current date and ID to new fact
     // TODO: Implement better ID generation
-    const currentDate = format(Date.now(), 'MMM do, yyyy');
+    const currentDate = new Date();
     const randomID = Math.floor(Math.random() * 1000000);
     const factWithDate = { ...newFact, date: currentDate, id: randomID };
     if (isValidFact(factWithDate)) {
