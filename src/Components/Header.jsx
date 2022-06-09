@@ -1,11 +1,13 @@
-const Header = () => {
+const Header = ({ toggleModalOpen }) => {
   return (
     <header className="main-header">
       <div className="main-header__logo">
         <h1>Memor eBank</h1>
       </div>
       <div>
-        <button className="add-fact-button">Create New Fact</button>
+        <button className="add-fact-button" onClick={toggleModalOpen}>
+          Create New Fact
+        </button>
       </div>
       <div className="main-header__nav">
         <a href="#" className="main-header__nav__item">
