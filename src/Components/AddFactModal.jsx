@@ -55,43 +55,43 @@ const AddFactModal = (props) => {
         <div className="add-fact-modal__body">
           <div className="add-fact-modal__body__inputs">
             <div className="add-fact-modal__body__inputs__title">
-              <label htmlFor="title">Title</label>
               <input
                 type="text"
                 id="title"
                 name="title"
+                placeholder="Title"
                 value={newFact.title}
                 onChange={handleChange}
               />
             </div>
             <div className="add-fact-modal__body__inputs__tags">
-              <label htmlFor="tags">Tags</label>
               <input
                 type="text"
                 id="tags"
                 name="tags"
                 value={newFact.tags}
                 onChange={handleChange}
+                placeholder="Tags"
               />
             </div>
             <div className="add-fact-modal__body__inputs__source">
-              <label htmlFor="source">Source</label>
               <input
                 type="text"
                 id="source"
                 name="source"
                 value={newFact.source}
                 onChange={handleChange}
+                placeholder="Fact Source"
               />
             </div>
             <div className="add-fact-modal__body__inputs__icon">
-              <label htmlFor="icon">Icon</label>
               <input
                 type="text"
                 id="icon"
                 name="icon"
                 value={newFact.icon}
                 onChange={handleChange}
+                placeholder="Icon"
               />
             </div>
           </div>
