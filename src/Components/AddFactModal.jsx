@@ -97,13 +97,13 @@ const AddFactModal = (props) => {
           </div>
         </div>
         <div className="add-fact-modal__footer">
+          <p className="add-fact-modal__footer__error">{error}</p>
           <button
             className="add-fact-modal__footer__button"
             onClick={handleSubmit}
           >
             Add Fact
           </button>
-          <p className="add-fact-modal__footer__error">{error}</p>
         </div>
       </div>
     </div>

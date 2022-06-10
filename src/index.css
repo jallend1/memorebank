@@ -199,16 +199,13 @@ code {
 
 .add-fact-modal__footer {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  margin-top: 1rem;
   width: 50%;
 }
 
 .add-fact-modal__footer__button {
   background-color: #e08a8a;
-  /* border: 1px solid #e0e0e0; */
   color: rgb(250, 250, 250);
   width: 100%;
   border-radius: 4px;

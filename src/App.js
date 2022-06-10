@@ -37,7 +37,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header toggleModalOpen={toggleModalOpen} />
+      <Header toggleModalOpen={toggleModalOpen} isOpen={isOpen} />
       {isOpen && <AddFactModal onAddFact={onAddFact} />}
       <div className="fact-card-container">
         {facts.map((fact) => (
