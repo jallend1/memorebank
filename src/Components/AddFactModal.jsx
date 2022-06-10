@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 const AddFactModal = (props) => {
   const { toggleModalOpen, onAddFact, onChange } = props;
@@ -21,10 +22,10 @@ const AddFactModal = (props) => {
 
   const handleSubmit = (e) => {
     // Assigns current date and ID to new fact
-    // TODO: Implement better ID generation
     const currentDate = new Date();
-    const randomID = Math.floor(Math.random() * 1000000);
+    const randomID = uuidv4();
     const factWithDate = { ...newFact, date: currentDate, id: randomID };
+    setNewFact(factWithDate);
     if (isValidFact(factWithDate)) {
       onAddFact(factWithDate);
     }
