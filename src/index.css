@@ -128,25 +128,28 @@ code {
 }
 
 .add-fact-modal-container {
+  position: absolute;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   margin: auto;
-  max-width: 800px;
+  width: 100%;
   height: 100%;
-  background-color: #201f1f;
-  color: rgb(250, 250, 250);
+  background-color: rgba(32, 31, 31, 0.75);
+  color: black;
   border-radius: 10px;
 }
 
 .add-fact-modal {
+  max-width: 800px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  background-color: #fafafa;
   margin: 1rem;
   padding: 1rem;
 }
@@ -156,12 +159,8 @@ code {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* width: 30%; */
   height: 100%;
   border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  margin: 1rem;
-  padding: 1rem;
 }
 
 .add-fact-modal__body__inputs {
@@ -171,8 +170,7 @@ code {
   justify-content: center;
   width: 100%;
   height: 100%;
-  margin: 1rem;
-  padding: 1rem;
+  color: black;
 }
 
 .add-fact-modal__body__inputs > div {
@@ -184,7 +182,6 @@ code {
   line-height: 2rem;
   background-color: transparent;
   border: solid 3px #e08a8a;
-  color: rgb(250, 250, 250);
   padding: 10px;
   border-radius: 5px;
   transition: all 0.4s;
