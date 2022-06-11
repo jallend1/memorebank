@@ -1,4 +1,4 @@
-const Header = ({ toggleModalOpen, isOpen }) => {
+const Header = ({ toggleModalOpen }) => {
   return (
     <header className="main-header">
       <div className="main-header__logo">
@@ -6,7 +6,7 @@ const Header = ({ toggleModalOpen, isOpen }) => {
       </div>
       <div>
         <button className="add-fact-button" onClick={toggleModalOpen}>
-          {isOpen ? 'Cancel New Fact' : 'Create New Fact'}
+          Create New Fact
         </button>
       </div>
       <div className="main-header__nav">
