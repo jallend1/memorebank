@@ -112,6 +112,10 @@ code {
   text-align: center;
 }
 
+.fact-card-icon {
+  max-width: 30px;
+}
+
 .fact-card__tags {
   display: flex;
   flex-direction: row;

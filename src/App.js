@@ -11,7 +11,7 @@ function App() {
       tags: ['Lorem', 'Ipsum', 'Dolor'],
       date: new Date(),
       source: 'FACT SOURCE',
-      icon: 'icon',
+      icon: 'Apple.png',
       id: 1
     },
     {
@@ -19,10 +19,21 @@ function App() {
       tags: ['Lorem', 'Ipsum', 'Dolor'],
       date: new Date(),
       source: 'FACT SOURCE',
-      icon: 'icon',
+      icon: 'Badge.png',
       id: 2
     }
   ]);
+
+  function importIcons(r) {
+    let icons = {};
+    r.keys().forEach((item) => {
+      icons[item.replace('./', '')] = r(item);
+    });
+    return icons;
+  }
+  const icons = importIcons(
+    require.context('./assets/images/icons', false, /\.(png|jpe?g|svg)$/)
+  );
 
   const [isOpen, setIsOpen] = useState(false);
 

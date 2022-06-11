@@ -1,11 +1,16 @@
 import { format } from 'date-fns';
 
 const FactCard = ({ title, tags, date, source, icon, id }) => {
+  console.log(icon);
   return (
     <div className="fact-card">
       <div className="fact-card__header">
         <p>{format(date, 'MMM do, yyyy')}</p>
-        <p>{icon}</p>
+        <img
+          src={require('../assets/images/icons/' + icon)}
+          className="fact-card-icon"
+          alt={icon.split('.')[0] + ' icon'}
+        />
         <p>{source}</p>
       </div>
       <div className="fact-card__body">
