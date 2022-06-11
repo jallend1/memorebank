@@ -39,7 +39,7 @@ function App() {
 
   const onAddFact = (fact) => {
     setFacts([...facts, fact]);
-    setIsOpen(false);
+    setIsOpen(!isOpen);
   };
 
   const toggleModalOpen = () => {
@@ -49,7 +49,13 @@ function App() {
   return (
     <div className="App">
       <Header toggleModalOpen={toggleModalOpen} />
-      {isOpen && <AddFactModal onAddFact={onAddFact} icons={icons} />}
+      {isOpen && (
+        <AddFactModal
+          onAddFact={onAddFact}
+          icons={icons}
+          toggleModalOpen={toggleModalOpen}
+        />
+      )}
       <div className="fact-card-container">
         {facts.map((fact) => (
           <FactCard key={fact.id} {...fact} />

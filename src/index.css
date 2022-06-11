@@ -211,6 +211,7 @@ code {
   width: 100%;
   border-radius: 4px;
   padding: 1rem;
+  margin: 1rem;
   font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
@@ -220,6 +221,21 @@ code {
 .add-fact-modal__footer__button:hover {
   background-color: #e46565;
   font-size: 1.25rem;
+}
+
+.add-fact-modal__exit-button {
+  background-color: #fafafa;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.add-fact-modal__exit-button:hover {
+  background-color: #e0e0e0;
 }
 
 .add-fact-modal__footer__error {

@@ -126,6 +126,12 @@ const AddFactModal = (props) => {
           >
             Add Fact
           </button>
+          <button
+            onClick={toggleModalOpen}
+            className="add-fact-modal__exit-button"
+          >
+            Cancel
+          </button>
         </div>
       </div>
     </div>
