@@ -2,14 +2,16 @@ import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 const AddFactModal = (props) => {
-  const { toggleModalOpen, onAddFact, onChange } = props;
+  const { toggleModalOpen, onAddFact, onChange, icons } = props;
   const [error, setError] = useState('');
   const [newFact, setNewFact] = useState({
     title: '',
     tags: [],
     source: '',
-    icon: ''
+    icon: 'Random'
   });
+
+  const iconNames = Object.keys(icons);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -20,11 +22,23 @@ const AddFactModal = (props) => {
     }
   };
 
+  const assignRandomIcon = () => {
+    const randomIndex = Math.floor(Math.random() * iconNames.length);
+    return iconNames[randomIndex];
+  };
+
   const handleSubmit = (e) => {
     // Assigns current date and ID to new fact
     const currentDate = new Date();
     const randomID = uuidv4();
-    const factWithDate = { ...newFact, date: currentDate, id: randomID };
+    const factIcon =
+      newFact.icon === 'Random' ? assignRandomIcon() : newFact.icon;
+    const factWithDate = {
+      ...newFact,
+      date: currentDate,
+      id: randomID,
+      icon: factIcon
+    };
     setNewFact(factWithDate);
     if (isValidFact(factWithDate)) {
       onAddFact(factWithDate);
@@ -50,7 +64,7 @@ const AddFactModal = (props) => {
     <div className="add-fact-modal-container">
       <div className="add-fact-modal">
         <div className="add-fact-modal__header">
-          <h1>Add Fact</h1>
+          <h1>New Fact</h1>
         </div>
         <div className="add-fact-modal__body">
           <div className="add-fact-modal__body__inputs">
@@ -85,14 +99,22 @@ const AddFactModal = (props) => {
               />
             </div>
             <div className="add-fact-modal__body__inputs__icon">
-              <input
-                type="text"
+              <select
                 id="icon"
                 name="icon"
                 value={newFact.icon}
                 onChange={handleChange}
-                placeholder="Icon"
-              />
+              >
+                <option value="Random">Random Icon</option>
+                {iconNames.map((icon) => {
+                  const iconName = icon.split('.')[0];
+                  return (
+                    <option key={icon} value={icon}>
+                      {iconName}
+                    </option>
+                  );
+                })}
+              </select>
             </div>
           </div>
         </div>
