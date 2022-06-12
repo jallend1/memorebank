@@ -2,16 +2,16 @@ import { useState } from 'react';
 import { format } from 'date-fns';
 
 const FactCard = ({ title, tags, date, source, icon, id }) => {
-  const [isFlipped, setIsFlipped] = useState(false);
+  const [isHeaderFlipped, setIsHeaderFlipped] = useState(false);
 
-  const flipCard = () => {
-    setIsFlipped(!isFlipped);
+  const flipHeader = () => {
+    setIsHeaderFlipped(!isHeaderFlipped);
   };
 
   return (
     <div className="fact-card">
       <div className="fact-card__header">
-        {!isFlipped ? (
+        {!isHeaderFlipped ? (
           <>
             <p>{format(date, 'MMM do, yyyy')}</p>
             <img
@@ -19,12 +19,12 @@ const FactCard = ({ title, tags, date, source, icon, id }) => {
               className="fact-card-icon"
               alt={icon.split('.')[0] + ' icon'}
             />
-            <p onClick={flipCard}>See Source</p>
+            <p onClick={flipHeader}>See Source</p>
           </>
         ) : (
           <div className="fact-card-source-header">
             <p>{source}</p>
-            <p onClick={flipCard}>Back</p>
+            <p onClick={flipHeader}>Back</p>
           </div>
         )}
       </div>
