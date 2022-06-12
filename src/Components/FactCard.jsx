@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { format } from 'date-fns';
 
-const FactCard = ({ title, tags, date, source, icon, id }) => {
+const FactCard = ({ title, tags, date, source, icon, filterFacts, id }) => {
   const [isHeaderFlipped, setIsHeaderFlipped] = useState(false);
 
   const flipHeader = () => {
@@ -34,7 +34,11 @@ const FactCard = ({ title, tags, date, source, icon, id }) => {
       <div className="fact-card__footer">
         <div className="fact-card__tags">
           {tags.map((tag) => (
-            <div key={tag} className="fact-card__tag">
+            <div
+              key={tag}
+              className="fact-card__tag"
+              onClick={() => filterFacts(tag)}
+            >
               {tag}
             </div>
           ))}

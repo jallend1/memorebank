@@ -24,6 +24,16 @@ function App() {
     }
   ]);
 
+  const [activeFacts, setActiveFacts] = useState([]);
+  const [isFilteringFacts, setIsFilteringFacts] = useState(false);
+
+  const filterFacts = (tags) => {
+    setIsFilteringFacts(true);
+    setActiveFacts(
+      facts.filter((fact) => fact.tags.some((tag) => tags.includes(tag)))
+    );
+  };
+
   function importIcons(r) {
     let icons = {};
     r.keys().forEach((item) => {
@@ -56,10 +66,20 @@ function App() {
           toggleModalOpen={toggleModalOpen}
         />
       )}
+      {isFilteringFacts ? (
+        <div>
+          <h2>Filtered Facts</h2>
+          <p onClick={() => setIsFilteringFacts(false)}>Clear Filter</p>
+        </div>
+      ) : null}
       <div className="fact-card-container">
-        {facts.map((fact) => (
-          <FactCard key={fact.id} {...fact} />
-        ))}
+        {isFilteringFacts
+          ? activeFacts.map((fact) => (
+              <FactCard key={fact.id} {...fact} filterFacts={filterFacts} />
+            ))
+          : facts.map((fact) => (
+              <FactCard key={fact.id} {...fact} filterFacts={filterFacts} />
+            ))}
       </div>
     </div>
   );
