@@ -12,6 +12,8 @@ function App() {
       date: new Date(),
       source: "It's in a book!",
       icon: 'Apple.png',
+      notes:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
       id: 1
     },
     {
@@ -20,6 +22,8 @@ function App() {
       date: new Date(),
       source: "It's on the Google",
       icon: 'Badge.png',
+      notes:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
       id: 2
     }
   ]);

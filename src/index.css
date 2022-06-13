@@ -113,6 +113,10 @@ code {
   padding: 1rem;
 }
 
+.fact-card-front {
+  background-color: #d21849;
+}
+
 .fact-card-back {
   background-color: dodgerblue;
   transform: rotateY(180deg);
