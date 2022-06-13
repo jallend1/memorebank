@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { format } from 'date-fns';
+import Arrow from '../assets/images/arrow.png';
 
 const FactCard = ({ title, tags, date, source, icon, filterFacts, id }) => {
   const [isCardFlipped, setIsCardFlipped] = useState(false);
@@ -19,7 +20,7 @@ const FactCard = ({ title, tags, date, source, icon, filterFacts, id }) => {
               className="fact-card-icon"
               alt={icon.split('.')[0] + ' icon'}
             />
-            <p onClick={flipCard}>See Source</p>
+            <img src={Arrow} alt="Click to flip" onClick={flipCard} />
           </div>
           <div className="fact-card__body">
             <h2 className="fact-card__title">{title}</h2>
@@ -39,6 +40,12 @@ const FactCard = ({ title, tags, date, source, icon, filterFacts, id }) => {
           </div>
         </div>
         <div className="fact-card-back">
+          <img
+            src={Arrow}
+            alt="Click to flip"
+            onClick={flipCard}
+            className="fact-card-flip"
+          />
           <h1 onClick={flipCard}>{source}</h1>
         </div>
       </div>
