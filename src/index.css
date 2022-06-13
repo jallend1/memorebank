@@ -90,7 +90,7 @@ code {
   transform-style: preserve-3d;
 }
 
-.fact-card:hover {
+.fact-card-flip {
   transform: rotateY(180deg);
 }
 
