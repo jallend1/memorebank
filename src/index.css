@@ -162,6 +162,7 @@ code {
 }
 
 .add-fact-modal-container {
+  z-index: 100;
   position: absolute;
   display: flex;
   flex-direction: column;
