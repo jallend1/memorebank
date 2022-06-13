@@ -72,7 +72,7 @@ function App() {
           <p onClick={() => setIsFilteringFacts(false)}>Clear Filter</p>
         </div>
       ) : null}
-      <div className="fact-card-container">
+      <div className="fact-cards-container">
         {isFilteringFacts
           ? activeFacts.map((fact) => (
               <FactCard key={fact.id} {...fact} filterFacts={filterFacts} />
