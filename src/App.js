@@ -10,7 +10,7 @@ function App() {
       title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
       tags: ['Lorem', 'Ipsum', 'Dolor'],
       date: new Date(),
-      source: 'FACT SOURCE',
+      source: "It's in a book!",
       icon: 'Apple.png',
       id: 1
     },
@@ -18,7 +18,7 @@ function App() {
       title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
       tags: ['Lorem', 'Ipsum', 'Dolor'],
       date: new Date(),
-      source: 'FACT SOURCE',
+      source: "It's on the Google",
       icon: 'Badge.png',
       id: 2
     }

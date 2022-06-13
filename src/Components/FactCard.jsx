@@ -48,7 +48,7 @@ const FactCard = ({ title, tags, date, source, icon, filterFacts, id }) => {
           </div>
         </div>
         <div className="fact-card-back">
-          <h1>hello there</h1>
+          <h1>{source}</h1>
         </div>
       </div>
     </div>
