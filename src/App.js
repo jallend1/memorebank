@@ -53,17 +53,12 @@ function App() {
 
   const [activeFacts, setActiveFacts] = useState([]);
   const [isFilteringFacts, setIsFilteringFacts] = useState(false);
-  const [isShowingRelated, setIsShowingRelated] = useState(false);
 
   const filterFacts = (tags) => {
     setIsFilteringFacts(true);
     setActiveFacts(
       facts.filter((fact) => fact.tags.some((tag) => tags.includes(tag)))
     );
-  };
-
-  const toggleRelated = () => {
-    setIsShowingRelated(!isShowingRelated);
   };
 
   function importIcons(r) {
@@ -112,8 +107,6 @@ function App() {
                 {...fact}
                 filterFacts={filterFacts}
                 relatedCards={relatedCards}
-                isShowingRelated={isShowingRelated}
-                toggleRelated={toggleRelated}
               />
             ))
           : facts.map((fact) => (
@@ -122,8 +115,6 @@ function App() {
                 {...fact}
                 filterFacts={filterFacts}
                 relatedCards={relatedCards}
-                isShowingRelated={isShowingRelated}
-                toggleRelated={toggleRelated}
               />
             ))}
       </div>

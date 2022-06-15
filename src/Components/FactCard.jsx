@@ -12,11 +12,14 @@ const FactCard = ({
   notes,
   filterFacts,
   relatedCards,
-  isShowingRelated,
-  toggleRelated,
   id
 }) => {
   const [isCardFlipped, setIsCardFlipped] = useState(false);
+  const [isShowingRelated, setIsShowingRelated] = useState(false);
+
+  const toggleRelated = () => {
+    setIsShowingRelated(!isShowingRelated);
+  };
 
   const flipCard = () => {
     setIsCardFlipped(!isCardFlipped);
