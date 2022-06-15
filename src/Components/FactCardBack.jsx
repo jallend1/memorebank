@@ -21,6 +21,9 @@ const FactCardBack = ({ date, icon, notes, source, flipCard, Arrow }) => {
         <h2 onClick={flipCard}>{source}</h2>
         <p>{notes}</p>
       </div>
+      <div className="fact-card__footer">
+        <p>Future Footer!</p>
+      </div>
     </div>
   );
 };
