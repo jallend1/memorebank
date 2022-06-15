@@ -38,19 +38,6 @@ function App() {
     }
   ]);
 
-  const [relatedCards, setRelatedCards] = useState([
-    {
-      title: 'Related Fact 1',
-      tags: ['Lorem', 'Ipsum', 'Dolor'],
-      date: new Date(),
-      source: "It's on the Google",
-      icon: 'Badge.png',
-      notes:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-      id: 2
-    }
-  ]);
-
   const [activeFacts, setActiveFacts] = useState([]);
   const [isFilteringFacts, setIsFilteringFacts] = useState(false);
 
@@ -102,20 +89,10 @@ function App() {
       <div className="fact-cards-container">
         {isFilteringFacts
           ? activeFacts.map((fact) => (
-              <FactCard
-                key={fact.id}
-                {...fact}
-                filterFacts={filterFacts}
-                relatedCards={relatedCards}
-              />
+              <FactCard key={fact.id} {...fact} filterFacts={filterFacts} />
             ))
           : facts.map((fact) => (
-              <FactCard
-                key={fact.id}
-                {...fact}
-                filterFacts={filterFacts}
-                relatedCards={relatedCards}
-              />
+              <FactCard key={fact.id} {...fact} filterFacts={filterFacts} />
             ))}
       </div>
     </div>

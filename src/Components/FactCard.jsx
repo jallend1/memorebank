@@ -11,11 +11,23 @@ const FactCard = ({
   icon,
   notes,
   filterFacts,
-  relatedCards,
   id
 }) => {
   const [isCardFlipped, setIsCardFlipped] = useState(false);
   const [isShowingRelated, setIsShowingRelated] = useState(false);
+
+  const [relatedCards, setRelatedCards] = useState([
+    {
+      title: 'Related Fact 1',
+      tags: ['Lorem', 'Ipsum', 'Dolor'],
+      date: new Date(),
+      source: "It's on the Google",
+      icon: 'Badge.png',
+      notes:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+      id: 20
+    }
+  ]);
 
   const toggleRelated = () => {
     setIsShowingRelated(!isShowingRelated);
@@ -47,7 +59,17 @@ const FactCard = ({
         />
       </div>
       <button onClick={toggleRelated}>Show Related</button>
-      {isShowingRelated && <h2>Related Content!</h2>}
+      {isShowingRelated && (
+        <FactCardFront
+          title={relatedCards[0].title}
+          date={relatedCards[0].date}
+          tags={relatedCards[0].tags}
+          filterFacts={filterFacts}
+          flipCard={flipCard}
+          icon={relatedCards[0].icon}
+          Arrow={Arrow}
+        />
+      )}
     </div>
   );
 };
