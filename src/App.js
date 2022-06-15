@@ -28,14 +28,32 @@ function App() {
     }
   ]);
 
+  const [relatedCards, setRelatedCards] = useState([
+    {
+      title: 'Related Fact 1',
+      tags: ['Lorem', 'Ipsum', 'Dolor'],
+      date: new Date(),
+      source: "It's on the Google",
+      icon: 'Badge.png',
+      notes:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+      id: 2
+    }
+  ]);
+
   const [activeFacts, setActiveFacts] = useState([]);
   const [isFilteringFacts, setIsFilteringFacts] = useState(false);
+  const [isShowingRelated, setIsShowingRelated] = useState(false);
 
   const filterFacts = (tags) => {
     setIsFilteringFacts(true);
     setActiveFacts(
       facts.filter((fact) => fact.tags.some((tag) => tags.includes(tag)))
     );
+  };
+
+  const toggleRelated = () => {
+    setIsShowingRelated(!isShowingRelated);
   };
 
   function importIcons(r) {
@@ -79,10 +97,24 @@ function App() {
       <div className="fact-cards-container">
         {isFilteringFacts
           ? activeFacts.map((fact) => (
-              <FactCard key={fact.id} {...fact} filterFacts={filterFacts} />
+              <FactCard
+                key={fact.id}
+                {...fact}
+                filterFacts={filterFacts}
+                relatedCards={relatedCards}
+                isShowingRelated={isShowingRelated}
+                toggleRelated={toggleRelated}
+              />
             ))
           : facts.map((fact) => (
-              <FactCard key={fact.id} {...fact} filterFacts={filterFacts} />
+              <FactCard
+                key={fact.id}
+                {...fact}
+                filterFacts={filterFacts}
+                relatedCards={relatedCards}
+                isShowingRelated={isShowingRelated}
+                toggleRelated={toggleRelated}
+              />
             ))}
       </div>
     </div>

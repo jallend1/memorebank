@@ -11,6 +11,9 @@ const FactCard = ({
   icon,
   notes,
   filterFacts,
+  relatedCards,
+  isShowingRelated,
+  toggleRelated,
   id
 }) => {
   const [isCardFlipped, setIsCardFlipped] = useState(false);
@@ -40,6 +43,8 @@ const FactCard = ({
           Arrow={Arrow}
         />
       </div>
+      <button onClick={toggleRelated}>Show Related</button>
+      {isShowingRelated && <h2>Related Content!</h2>}
     </div>
   );
 };
