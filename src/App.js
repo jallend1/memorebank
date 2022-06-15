@@ -25,6 +25,16 @@ function App() {
       notes:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
       id: 2
+    },
+    {
+      title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+      tags: ['Lorem', 'Ipsum', 'Dolor'],
+      date: new Date(),
+      source: "It's on the Google",
+      icon: 'Flask.png',
+      notes:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+      id: 3
     }
   ]);
 
