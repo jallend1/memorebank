@@ -11,6 +11,7 @@ const FactCard = ({
   icon,
   notes,
   filterFacts,
+  facts,
   id
 }) => {
   const [isCardFlipped, setIsCardFlipped] = useState(false);
@@ -29,8 +30,30 @@ const FactCard = ({
     }
   ]);
 
+  const howRelated = () => {
+    const mostSimilarFacts = [];
+    facts.forEach((fact) => {
+      let count = 0;
+      if (fact.id !== id) {
+        tags.forEach((tag) => {
+          if (fact.tags.includes(tag)) {
+            count++;
+          }
+        });
+        if (count > 0) {
+          mostSimilarFacts.push({
+            factID: fact.id,
+            count: count
+          });
+        }
+      }
+    });
+    console.log(mostSimilarFacts.sort((a, b) => b.count - a.count));
+  };
+
   const toggleRelated = () => {
     setIsShowingRelated(!isShowingRelated);
+    howRelated();
   };
 
   const flipCard = () => {

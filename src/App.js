@@ -89,10 +89,20 @@ function App() {
       <div className="fact-cards-container">
         {isFilteringFacts
           ? activeFacts.map((fact) => (
-              <FactCard key={fact.id} {...fact} filterFacts={filterFacts} />
+              <FactCard
+                key={fact.id}
+                {...fact}
+                filterFacts={filterFacts}
+                facts={facts}
+              />
             ))
           : facts.map((fact) => (
-              <FactCard key={fact.id} {...fact} filterFacts={filterFacts} />
+              <FactCard
+                key={fact.id}
+                {...fact}
+                filterFacts={filterFacts}
+                facts={facts}
+              />
             ))}
       </div>
     </div>
